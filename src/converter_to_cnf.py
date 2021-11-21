@@ -51,12 +51,10 @@ def convert_grammar(grammar):
                 new_rules.append([f"{rule[0]}{str(idx)}", rule[1], rule[2]])
                 rule = [rule[0]] + [f"{rule[0]}{str(idx)}"] + rule[3:]
                 idx += 1
-        if rule:
-        	add_rule(rule)
-        	result.append(rule)
+        add_rule(rule)
+        result.append(rule)
         if new_rules:
-        	for i in range(len(new_rules)):
-           		result.append(new_rules[i])
+            result.extend(new_rules)
 
     while unit_prod:
         rule = unit_prod.pop()
@@ -64,7 +62,7 @@ def convert_grammar(grammar):
             for item in RULE_DICT[rule[1]]:
                 new_rule = [rule[0]] + item
                 if len(new_rule) > 2 or new_rule[1][0] == "'":
-                    result.append(new_rule)
+                    result.insert(0,new_rule)
                 else:
                     unit_prod.append(new_rule)
                 add_rule(new_rule)
