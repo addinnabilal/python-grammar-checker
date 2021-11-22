@@ -66,6 +66,8 @@ rules = [
     (r'\"[^\n]*\"', "STRING"),
     (r'\'[^\n]*\'', "STRING"),
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\"', "QMARK"),
+    (r'\'', "SQMARK"),
 ]
 
 def imp_lex(characters):
