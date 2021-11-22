@@ -7,7 +7,7 @@ rules = [
     (r'\"\"\"[\w\W\n+]*\"\"\"', None),
     (r'\'\'\'[\w\W\n+]*\'\'\'', None),
     (r'\:=',"ASSIGN"),
-    (r'\:==',"ISEQ"),
+    (r'\==',"ISEQ"),
     (r'->',"ARROW"),
     (r'\(',"LP"),
     (r'\)',"RP"), #rigth parantheses

@@ -1,5 +1,10 @@
-import a as a
+x=
 def get_rule_category(rule: dict) -> str:
+"""
+lalal
+lalallal
+[][]*&
+"""
 	if len(rule_product) == 0:
 		return EPSILON_RULE_KE
 	elif len(rule_product) == 1:
