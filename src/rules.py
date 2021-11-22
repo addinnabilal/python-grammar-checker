@@ -1,6 +1,6 @@
 import lexer
 
-# blm bisa handle multiline string
+# blm bisa handle multiline comment, []
 rules = [
     (r'[ \n\t]+', None),
     (r'#[^\n]*', None),
@@ -8,6 +8,7 @@ rules = [
     (r'\'\'\'[\w\W\n+]*\'\'\'', None),
     (r'\:=',"ASSIGN"),
     (r'\:==',"ISEQ"),
+    (r'->',"ARROW"),
     (r'\(',"LP"),
     (r'\)',"RP"), #rigth parantheses
     (r'\;', "SC"), #semicolon
@@ -30,7 +31,6 @@ rules = [
     (r'\,',"COMMA"),
     (r'\%',"MOD"), 
     (r'\*\*,',"POWER"),
-    (r'\->,',"ARROW"),
     (r'\[',"LAB"), #left angle bracket 
     (r'\],',"RAB"), #right angle bracket
     (r'\{',"LCB"), #left curly bracket 
@@ -60,6 +60,7 @@ rules = [
     (r'\bbreak\b',"BREAK"),
     (r'\bin\b',"IN"),
     (r'\braise\b',"RAISE"),
+    (r'\breturn\b',"RETURN"),
     (r'[\+\-]?[0-9]+', "NUM"),
     (r'[\+\-]?[0-9]+\.[0-9]+', "NUM"),
     (r'\"[^\n]*\"', "STRING"),

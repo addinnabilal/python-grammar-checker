@@ -1,12 +1,14 @@
-
 import sys
 from rules import *
+from expression_checker import *
 
 def tokenizer(text):
     tokens = imp_lex(text)
     output=[]
     for token in tokens:
-        output.append(token[1])
+        checkExpression(token)
+        for lexemme in token:
+            output.append(lexemme[1])
     joined = " ".join(output)
 
     output_file=open("tokenized.txt","w")
@@ -20,4 +22,3 @@ if __name__== "__main__":
     characters = file.read()
     file.close()
     tokenizer(characters)
-       
