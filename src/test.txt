@@ -1,6 +1,5 @@
 import a as a
 def get_rule_category(rule: dict) -> str:
-	""" lalala"""
 	if len(rule_product) == 0:
 		return EPSILON_RULE_KE
 	elif len(rule_product) == 1:

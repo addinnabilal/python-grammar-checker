@@ -4,16 +4,15 @@ import sys
 def checkExpression(token):
     index=0
     while index <len(token):
-        print(token[index])
         if token[index][1]=="ID":
             if (index+2)<len(token):
                 if (token[index+1][1]=="EQ" or token[index+1][1]=="NEQ" or token[index+1][1]=="ISEQ"):
                     if token[index+2][1]!=("NUM" or "STRING"):
                         print("Illegal expression")
                         sys.exit
-                elif (token[index+1][1]=="ADD" or token[index+1][1]=="SUB" or token[index+1][1]=="MUL" or token[index+1][1]=="POWER" or token[index+1][1]=="DIV" or token[index+1][1]=="DIVEQ" or token[index+1][1]=="MULEQ" or token[index+1][1]=="ADDEQ" or token[index+1][1]=="LESS" or token[index+1][1]=="LEQ" or "GREATER"  or token[index+1][1]=="GEQ"):
+                elif (token[index+1][1]=="ADD" or token[index+1][1]=="SUB" or token[index+1][1]=="MUL" or token[index+1][1]=="POWER" or token[index+1][1]=="DIV" or token[index+1][1]=="DIVEQ" or token[index+1][1]=="MULEQ" or token[index+1][1]=="ADDEQ" or token[index+1][1]=="LESS" or token[index+1][1]=="LEQ" or token[index+1][1]=="GREATER"  or token[index+1][1]=="GEQ"):
                     if (token[index+2][1]!="NUM"):
-                        print("Illegal expression") #dia masuk ke sini mulu
+                        print("Illegal expression")
                         sys.exit
             else:
                 if (index-1)>=0:
