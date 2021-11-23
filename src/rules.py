@@ -23,6 +23,7 @@ rules = [
     (r'>',"GREATER"),
     (r'=',"EQ"), #
     (r'!=',"NEQ"),
+    (r'\-=',"MINEQ"),
     (r'/=',"DIVEQ"), 
     (r'\*=',"MULEQ"),    
     (r'\+=',"ADDEQ"), 
@@ -51,7 +52,7 @@ rules = [
     (r'\bfor\b',"FOR"),
     (r'\bTrue\b',"TRUE"),
     (r'\bdef\b', "DEF"),
-    (r'\bfrom\b',"from"),
+    (r'\bfrom\b',"FROM"),
     (r'\bwith\b',"WITH"),
     (r'\bas\b',"AS"),
     (r'\belif\b',"ELIF"),
