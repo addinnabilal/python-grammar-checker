@@ -4,6 +4,7 @@ import sys
 def checkExpression(token):
     index=0
     while index <len(token):
+        print(token[index])
         if token[index][1]=="ID":
             if (index+1)<len(token):
                 if (token[index+1][1]=="EQ" or token[index+1][1]=="NEQ" or token[index+1][1]=="ISEQ"):
@@ -29,7 +30,7 @@ def checkExpression(token):
 
                 elif (token[index+1][1]=="ADD"):
                     if (index+2)<len(token):
-                        if not(token[index+2][1]=="STRING" or token[index+2][1]=="NUM"):
+                        if not(token[index+2][1]=="STRING" or token[index+2][1]=="NUM" or token[index+2][1]=="ID"):
                             print_error(token)
 
                         else:
