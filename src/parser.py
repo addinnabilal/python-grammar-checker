@@ -2,6 +2,16 @@ import os
 import argparse
 import converter_to_cnf
 import tokenizer
+import time, sys
+
+# def loading():
+#     animation = "|/-\\"
+
+#     for i in range(100):
+#         time.sleep(0.1)
+#         sys.stdout.write("\rParsing.." + animation[i % len(animation)])
+#         sys.stdout.flush()
+#         #do something
 
 class Node:
     # Initialize the node with two child nodes, right node can be empty
@@ -38,6 +48,8 @@ class Parser:
 
     # CYK Algorithm
     def parse(self):
+        animation = "|/-\\"
+        i = 0
         l = len(self.input)
         self.parsetable = [[[] for x in range(l-y)] for y in range(l)]
         # Substrings of length 1
@@ -60,6 +72,12 @@ class Parser:
                         if lNodes:
                             rNodes = [n for n in rcell if n.sym == rule[2]]
                             self.parsetable[sub-1][start].extend([Node(rule[0], left, right) for left in lNodes for right in rNodes])
+                    
+                    # Loading prompts
+                    time.sleep(0.1)
+                    sys.stdout.write("\rParsing.." + animation[i % len(animation)])
+                    sys.stdout.flush()
+                    i += 1
 
     # Open grammar from file
     def grammarFromFile(self, g):
@@ -69,8 +87,6 @@ class Parser:
     # Result decider according to the CYK formula
     def result(self):
         startSymbol = self.grammar[0][0]
-        print(self.input)
-        print(self.parsetable)
         if len(self.input):
             nodes = [n for n in self.parsetable[-1][0] if n.sym == startSymbol]
             if nodes:
@@ -90,4 +106,5 @@ if __name__ == "__main__":
 
     TestParser = Parser(args.grammar, args.sentence)
     TestParser.parse()
+    print()
     TestParser.result()
