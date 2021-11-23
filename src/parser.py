@@ -40,13 +40,12 @@ class Parser:
     def parse(self):
         l = len(self.input)
         self.parsetable = [[[] for x in range(l-y)] for y in range(l)]
-
         # Substrings of length 1
         for i, word in enumerate(self.input):
             for rule in self.grammar:
-                if f"'word'" == rule[1]:
+                if f"'{word}'" == rule[1]:
                     self.parsetable[0][i].append(Node(rule[0], word))
-
+                    
         # Substrings 2 and greater
         for sub in range(2, l+1):
             for start in range(0, l-sub+1):
@@ -57,9 +56,9 @@ class Parser:
                     
                     # Check the form of S -> AB
                     for rule in self.grammar:
-                        lNodes = [n for n in lcell if n.symbol == rule[1]]
+                        lNodes = [n for n in lcell if n.sym == rule[1]]
                         if lNodes:
-                            rNodes = [n for n in rcell if n.symbol == rule[2]]
+                            rNodes = [n for n in rcell if n.sym == rule[2]]
                             self.parsetable[sub-1][start].extend([Node(rule[0], left, right) for left in lNodes for right in rNodes])
 
     # Open grammar from file
@@ -70,8 +69,10 @@ class Parser:
     # Result decider according to the CYK formula
     def result(self):
         startSymbol = self.grammar[0][0]
+        print(self.input)
+        print(self.parsetable)
         if len(self.input):
-            nodes = [n for n in self.parsetable[-1][0] if n.symbol == startSymbol]
+            nodes = [n for n in self.parsetable[-1][0] if n.sym == startSymbol]
             if nodes:
                 print("Accepted.")
             else:

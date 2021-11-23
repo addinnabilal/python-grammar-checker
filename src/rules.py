@@ -23,6 +23,7 @@ rules = [
     (r'>',"GREATER"),
     (r'=',"EQ"), #
     (r'!=',"NEQ"),
+    (r'\-=',"MINEQ"),
     (r'/=',"DIVEQ"), 
     (r'\*=',"MULEQ"),    
     (r'\+=',"ADDEQ"), 
