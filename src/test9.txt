@@ -1,2 +1,1 @@
-power=1
-power!=10
+x=x+i

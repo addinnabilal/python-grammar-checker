@@ -14,6 +14,7 @@ rules = [
     (r'\;', "SC"), #semicolon
     (r'\:', "COLON"),
     (r'/',"DIV"),
+    (r'//',"DIV"),
     (r'<=',"LEQ"),
     (r'<',"LESS"),
     (r'>=',"GEQ"),
