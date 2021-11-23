@@ -32,7 +32,7 @@ rules = [
     (r'\%',"MOD"), 
     (r'\*\*,',"POWER"),
     (r'\[',"LAB"), #left angle bracket 
-    (r'\],',"RAB"), #right angle bracket
+    (r'\]',"RAB"), #right angle bracket
     (r'\{',"LCB"), #left curly bracket 
     (r'\},',"RCB"), #right curly bracket
     (r'\band\b',"AND"),
@@ -51,7 +51,7 @@ rules = [
     (r'\bfor\b',"FOR"),
     (r'\bTrue\b',"TRUE"),
     (r'\bdef\b', "DEF"),
-    (r'\bfrom\b',"from"),
+    (r'\bfrom\b',"FROM"),
     (r'\bwith\b',"WITH"),
     (r'\bas\b',"AS"),
     (r'\belif\b',"ELIF"),
@@ -61,11 +61,13 @@ rules = [
     (r'\bin\b',"IN"),
     (r'\braise\b',"RAISE"),
     (r'\breturn\b',"RETURN"),
+    (r'\bNone\b',"NONE"),
     (r'[\+\-]?[0-9]+', "NUM"),
     (r'[\+\-]?[0-9]+\.[0-9]+', "NUM"),
     (r'\"[^\n]*\"', "STRING"),
     (r'\'[^\n]*\'', "STRING"),
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\_\_[a-z]+\_\_*', "ID"),
     (r'\"', "QMARK"),
     (r'\'', "SQMARK"),
 ]

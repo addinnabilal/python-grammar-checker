@@ -21,8 +21,8 @@ def lex(textinput, token_exprs):
                     tokens[line].append(token)
                 break
         if not match:
-            print("Illegal character found!")
-            sys.stderr.write('Illegal character at line %s %d \n' % (textinput[pos],line+1)) # masih error
+            print("Syntax Error")
+            sys.stderr.write('Illegal character  %s found at line %d\n' % (textinput[pos],line+1)) # masih error
             sys.exit(1)
         else:
             pos = match.end(0)

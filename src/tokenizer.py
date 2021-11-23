@@ -18,7 +18,7 @@ def tokenizer(text):
 
 if __name__== "__main__":
     filename = sys.argv[1]
-    file = open(filename)
+    file = open(filename,encoding="utf8")
     characters = file.read()
     file.close()
     tokenizer(characters)
