@@ -1,8 +1,8 @@
-
 class method(inibasdasd):
     """
     ini comment multiline
     """
+    basdasd="abc"
     def funcname(self, parameter_list):
         pass
 variavleBoolean = True
