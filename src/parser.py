@@ -74,7 +74,6 @@ class Parser:
                             self.parsetable[sub-1][start].extend([Node(rule[0], left, right) for left in lNodes for right in rNodes])
                     
                     # Loading prompts
-                    time.sleep(0.1)
                     sys.stdout.write("\rParsing.." + animation[i % len(animation)])
                     sys.stdout.flush()
                     i += 1
