@@ -20,6 +20,9 @@ class Node:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return self.sym
+
 class Parser:
     # Initialize parser attributes
     def __init__(self, grammar, sentence):
@@ -102,7 +105,6 @@ if __name__ == "__main__":
     arg.add_argument("sentence")
 
     args = arg.parse_args()
-
     TestParser = Parser(args.grammar, args.sentence)
     TestParser.parse()
     print()
