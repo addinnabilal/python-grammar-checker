@@ -41,38 +41,6 @@ class Parser:
                 self.input = stream.readline().split()
     
 
-    # CYK Algorithm
-    def parse(self):
-        animation = "|/-\\"
-        i = 0
-        l = len(self.input)
-        self.parsetable = [[[] for x in range(l-y)] for y in range(l)]
-        # Substrings of length 1
-        for i, word in enumerate(self.input):
-            for rule in self.grammar:
-                if f"'{word}'" == rule[1]:
-                    self.parsetable[0][i].append(Node(rule[0], word))
-                    
-        # Substrings 2 and greater
-        for sub in range(2, l+1):
-            for start in range(0, l-sub+1):
-                for left_part in range(1,sub):
-                    right_part = sub - left_part
-                    lcell = self.parsetable[left_part-1][start]
-                    rcell = self.parsetable[right_part-1][start+left_part]
-                    
-                    # Check the form of S -> AB
-                    for rule in self.grammar:
-                        lNodes = [n for n in lcell if n.sym == rule[1]]
-                        if lNodes:
-                            rNodes = [n for n in rcell if n.sym == rule[2]]
-                            self.parsetable[sub-1][start].extend([Node(rule[0], left, right) for left in lNodes for right in rNodes])
-                    
-                    # Loading prompts
-                    sys.stdout.write("\rParsing.." + animation[i % len(animation)])
-                    sys.stdout.flush()
-                    i += 1
-
     def toDict(self, grammar):
         ans = {}
         for g in grammar:
@@ -86,7 +54,8 @@ class Parser:
             ans[str(g[0])].append(prod)
         return ans
 
-    def parsev2(self):
+    # CYK Algorithm
+    def parse(self):
         animation = "|/-\\"
         n = len(self.input)
         R = self.toDict(self.grammar)
@@ -118,7 +87,8 @@ class Parser:
                     sys.stdout.flush()
         print()
 
-    def resultv2(self):
+    # Result decider according to the CYK formula
+    def result(self):
         n = len(self.input)
         if len(self.parsetable[0][n-1]) != 0:
             print("Accepted.")
@@ -130,17 +100,6 @@ class Parser:
         cfg = converter_to_cnf.read_grammar(g)
         self.grammar = converter_to_cnf.convert_grammar(cfg)
 
-    # Result decider according to the CYK formula
-    def result(self):
-        startSymbol = self.grammar[0][0]
-        if len(self.input):
-            nodes = [n for n in self.parsetable[-1][0] if n.sym == startSymbol]
-            if nodes:
-                print("Accepted.")
-            else:
-                print("Syntax error.")
-        else:
-            print("Accepted.")
 
 def printASCII():
     print('''welcome to....
@@ -151,18 +110,22 @@ _____     _   _              _____
     |___|                                             
     ''')
 
+# Main driver
 if __name__ == "__main__":
+    # Arguments Parser
     arg = argparse.ArgumentParser()
     arg.add_argument("grammar")
     arg.add_argument("sentence")
     printASCII()
     args = arg.parse_args()
+
+    # Main program
     start = time()
     TestParser = Parser(args.grammar, args.sentence)
-    TestParser.parsev2()
-    TestParser.resultv2()
-    # TestParser.parse()
-    # print()
-    # TestParser.result()
+    TestParser.parse()
+
+    # Output
+    TestParser.result()
     timeTaken = time()-start
+
     print(f"Time taken: {timeTaken} s")
