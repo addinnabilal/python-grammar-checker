@@ -90,7 +90,6 @@ class Parser:
         animation = "|/-\\"
         n = len(self.input)
         R = self.toDict(self.grammar)
-        print(self.input)
         # Initialize the table
         self.parsetable = [[set([]) for j in range(n)] for i in range(n)]
 
