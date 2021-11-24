@@ -2,19 +2,24 @@ import lexer
 
 # blm bisa handle multiline comment, []
 rules = [
-    (r'[ \n\t]+', None),
+    (r'[\s\t]+', None),
     (r'#[^\n]*', None),
     (r'\"\"\"[\w\W\n+]*\"\"\"', None),
     (r'\'\'\'[\w\W\n+]*\'\'\'', None),
-    (r'\:=',"ASSIGN"),
+    (r'[\+\-]?[0-9]+', "NUM"),
+    (r'[\+\-]?[0-9]+\.[0-9]+', "NUM"),
+    (r'\:=',"EQ"),
     (r'\==',"ISEQ"),
     (r'->',"ARROW"),
     (r'\(',"LP"),
     (r'\)',"RP"), #rigth parantheses
     (r'\;', "SC"), #semicolon
     (r'\:', "COLON"),
-    (r'/',"DIV"),
+    (r'<<',"BLS"),
+    (r'>>',"BRS"),
     (r'//',"DIV"),
+    (r'/',"DIV"),
+    (r'<>',"NEQ"),
     (r'<=',"LEQ"),
     (r'<',"LESS"),
     (r'>=',"GEQ"),
@@ -24,6 +29,9 @@ rules = [
     (r'\-=',"MINEQ"),
     (r'/=',"DIVEQ"), 
     (r'\*=',"MULEQ"),    
+    (r'\%=',"MODEQ"),
+    (r'\*\*=',"POWEREQ"),
+    (r'//=',"DIVEQ"),
     (r'\+=',"ADDEQ"), 
     (r'!=',"NEQ"),
     (r'\+',"ADD"),
@@ -32,11 +40,15 @@ rules = [
     (r'\.',"POINT"), 
     (r'\,',"COMMA"),
     (r'\%',"MOD"), 
-    (r'\*\*,',"POWER"),
+    (r'\*\*',"POWER"),
+    (r'\&',"AND"),
+    (r'\|',"AND"),
+    (r'\^',"XOR"),
+    (r'\~',"NOT"),
     (r'\[',"LAB"), #left angle bracket 
     (r'\]',"RAB"), #right angle bracket
     (r'\{',"LCB"), #left curly bracket 
-    (r'\},',"RCB"), #right curly bracket
+    (r'\}',"RCB"), #right curly bracket
     (r'\band\b',"AND"),
     (r'\bor\b', "OR"),
     (r'\bnot\b',"NOT"),
@@ -71,8 +83,6 @@ rules = [
     (r'\bcomplex\b',"TYPE"),
     (r'\blist\b',"TYPE"),
     (r'\btuple\b',"TYPE"),
-    (r'[\+\-]?[0-9]+', "NUM"),
-    (r'[\+\-]?[0-9]+\.[0-9]+', "NUM"),
     (r'\"[^\n]*\"', "STRING"),
     (r'\'[^\n]*\'', "STRING"),
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),

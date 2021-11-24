@@ -9,7 +9,7 @@ variavleBoolean = True
 if (not(variavleBoolean)):
     while(1):
         if True:
-            break
+            return a
         elif False:
             pass
         else:
