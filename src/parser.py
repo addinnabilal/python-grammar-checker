@@ -5,16 +5,6 @@ import tokenizer
 import sys
 from time import time
 
-class Node:
-    # Initialize the node with two child nodes, right node can be empty
-    def __init__(self, sym, left, right=None):
-        self.sym = sym
-        self.left = left
-        self.right = right
-
-    def __repr__(self):
-        return self.sym
-
 class Parser:
     # Initialize parser attributes
     def __init__(self, grammar, sentence):
