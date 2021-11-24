@@ -2,13 +2,14 @@ import lexer
 
 # blm bisa handle multiline comment, []
 rules = [
-    (r'[\s\t]+', None),
+    (r'[ \t]+', None),
+    (r'[\n]', "NEWLINE"),
     (r'#[^\n]*', None),
     (r'\"\"\"[\w\W\n+]*\"\"\"', None),
     (r'\'\'\'[\w\W\n+]*\'\'\'', None),
     (r'[\+\-]?[0-9]+', "NUM"),
     (r'[\+\-]?[0-9]+\.[0-9]+', "NUM"),
-    (r'\:=',"EQ"),
+    (r'\:=',"ASSIGN"),
     (r'\==',"ISEQ"),
     (r'->',"ARROW"),
     (r'\(',"LP"),
@@ -87,7 +88,6 @@ rules = [
     (r'\'[^\n]*\'', "STRING"),
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
     (r'\_\_[a-z]+\_\_*', "ID"),
-    (r'\w+[.]\w+',                    "KARTITIK"),
     (r'\"', "QMARK"),
     (r'\'', "SQMARK"),
 ]

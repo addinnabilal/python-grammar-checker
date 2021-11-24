@@ -1,3 +1,4 @@
+
 def get_rule_category(rule: dict) -> str:
  ''' Get rule category in string. This category is also a key for its corresponding dictionary.
     Input(dict) = rule
