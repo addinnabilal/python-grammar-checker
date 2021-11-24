@@ -77,6 +77,7 @@ rules = [
     (r'\braise\b',"RAISE"),
     (r'\breturn\b',"RETURN"),
     (r'\bNone\b',"NONE"),
+    (r'\brange\b',"RANGE"),
     (r'\bdict\b',"TYPE"),
     (r'\bint\b',"TYPE"),
     (r'\bstr\b',"TYPE"),
