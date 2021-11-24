@@ -142,12 +142,20 @@ class Parser:
         else:
             print("Accepted.")
 
+def printASCII():
+    print('''welcome to....
+_____     _   _              _____                     
+|  _  |_ _| |_| |_ ___ ___   |  _  |___ ___ ___ ___ ___ 
+|   __| | |  _|   | . |   |  |   __| .'|  _|_ -| -_|  _|
+|__|  |_  |_| |_|_|___|_|_|  |__|  |__,|_| |___|___|_|  
+    |___|                                             
+    ''')
 
 if __name__ == "__main__":
     arg = argparse.ArgumentParser()
     arg.add_argument("grammar")
     arg.add_argument("sentence")
-
+    printASCII()
     args = arg.parse_args()
     start = time()
     TestParser = Parser(args.grammar, args.sentence)
