@@ -1,5 +1,6 @@
 # python-parser
-A Python parser for Python
+A Python parser for Python utilizing the concepts of Context-free Grammar and the Cocke-Younger-Kasami algorithm.<br>
+This project was made to fulfill the requirements of passing Formal Languages and Automata Theory class.
 
 ## How to use:
 - Clone this repository
