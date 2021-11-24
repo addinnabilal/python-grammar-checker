@@ -7,12 +7,11 @@ def get_rule_category(rule: dict) -> str:
     Input = {'producer': 'N', 'product': ['people']}
     Output = 'terminal'
  '''
-
     rule_product = rule[PRODUCT_KEY]
     if len(rule_product) == 0:
         return EPSILON_RULE_KEY
     elif len(rule_product) == 1:
-        if rule_product[0].islower:
+        if rule_product[0]:
             return TERMINAL_RULE_KEY
         else:
             return UNARY_RULE_KEY

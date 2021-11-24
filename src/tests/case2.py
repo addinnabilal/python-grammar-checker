@@ -1,12 +1,12 @@
-def do_something(x):
+b = 1
+while True:
+    print(a)
+    if(a):
+        break
+    elif(a == b):
+        a[2] = a[4+i]
+        continue
 
-    x + 2 = 3
-    if x == 0 + 1
-        return 0
-    elif x + 4 == 1:
-        else:
-            return 2
-    elif x == 32:
-        return 4
-    else:
-        return “Doodoo”
+def a():
+    if 1:
+        return 2
