@@ -1,5 +1,5 @@
 # Python Grammar Checker
-A Python grammar checker for Python utilizing the concepts of Context-free Grammar and the Cocke-Younger-Kasami algorithm.<br>
+A grammar checker for Python programming language utilizing the concepts of Context-free Grammar and the Cocke-Younger-Kasami algorithm.<br>
 This project was made to fulfill the requirements of passing Formal Languages and Automata Theory class.
 
 ## How to use:
